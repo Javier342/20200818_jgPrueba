@@ -47,7 +47,7 @@ export class HeroeComponent implements OnInit {
     Swal.fire({
       title: 'Espere',
       text: 'Guardando información',
-      type: 'info',
+      icon: 'info',
       allowOutsideClick: false
     });
     Swal.showLoading();
@@ -66,7 +66,7 @@ export class HeroeComponent implements OnInit {
       Swal.fire({
         title: this.heroe.nombre,
         text: 'Se actualizó correctamente',
-        type: 'success'
+        icon: 'success'
       });
 
     });

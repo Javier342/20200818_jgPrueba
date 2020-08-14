@@ -32,7 +32,7 @@ export class HeroesComponent implements OnInit {
     Swal.fire({
       title: '¿Está seguro?',
       text: `Está seguro que desea borrar a ${ heroe.nombre }`,
-      type: 'question',
+      icon: 'question',
       showConfirmButton: true,
       showCancelButton: true
     }).then( resp => {

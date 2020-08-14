@@ -9,7 +9,7 @@ import { map, delay } from 'rxjs/operators';
 })
 export class HeroesService {
 
-  private url = 'https://login-app-eef87.firebaseio.com';
+  private url = 'https://crud-sesion12.firebaseio.com';
 
 
   constructor( private http: HttpClient ) { }
@@ -53,19 +53,21 @@ export class HeroesService {
 
   }
 
-
+  /* Recibe la lista de Heroes de un objeto json y
+  lo transforma en un arreglo para que lo maneje el ngFor*/
   getHeroes() {
     return this.http.get(`${ this.url }/heroes.json`)
             .pipe(
               map( this.crearArreglo ),
-              delay(0)
+              delay(1500)
             );
   }
 
   private crearArreglo( heroesObj: object ) {
-
+    // Declara el arreglo heroes
     const heroes: HeroeModel[] = [];
 
+    // Recorre el objeto que recibe de Firebase
     Object.keys( heroesObj ).forEach( key => {
 
       const heroe: HeroeModel = heroesObj[key];
@@ -74,9 +76,7 @@ export class HeroesService {
       heroes.push( heroe );
     });
 
-
     return heroes;
-
   }
 
 
